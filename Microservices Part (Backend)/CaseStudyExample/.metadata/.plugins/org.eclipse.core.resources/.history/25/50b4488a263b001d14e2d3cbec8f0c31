@@ -1,0 +1,19 @@
+package com.cart.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+@Entity
+public class Cart {
+		
+		@Id
+		private long prod_id;
+		private String prod_quantity;
+		private String payment_mode;
+		
+		
+		public Cart(){}
+
+
+}

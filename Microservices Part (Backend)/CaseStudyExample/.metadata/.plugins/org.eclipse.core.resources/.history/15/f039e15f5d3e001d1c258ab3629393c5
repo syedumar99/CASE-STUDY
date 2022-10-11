@@ -1,0 +1,68 @@
+package com.order.controller;
+
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.order.model.Order;
+import com.order.repository.OrderRepository;
+
+
+
+@RestController
+public class OrderController {
+	
+	Optional<Order> o1;
+	
+	@Autowired
+	private OrderRepository orepository;
+	
+	@GetMapping("/orders")
+	public List<Order> getAllOrder(){
+		return orepository.findAll();
+	}
+	
+	@GetMapping("/orders/{id}")
+	public ResponseEntity getOrderById(@PathVariable(value = "id") long order_id) {
+		o1 = orepository.findById((long) order_id);
+		return ResponseEntity.ok().body(o1);
+	}
+	
+	@PostMapping(value = "/orders")
+	public Order saveOrder(@RequestBody Order orod) {
+		return orepository.save(orod);
+	}
+	
+    @PutMapping(value="/orders/{id}")
+    public ResponseEntity updateOrder (@PathVariable(value="id") Long order_id,
+    @Validated @RequestBody Order odata){
+        o1 = orepository.findById(order_id);
+       Order o2 = o1.get();
+        o2.setOrder_id(odata.getOrder_id());
+        o2.setProd_id(odata.getProd_id());
+        o2.setPayment(odata.getPayment());
+        o2.setOrder_status(odata.getOrder_status());
+        
+       Order updateOrder = orepository.save(o2);
+        return ResponseEntity.ok(updateOrder);
+    } 
+	
+    
+    @DeleteMapping(value="/orders/{id}")
+    public ResponseEntity deleteOrder
+    (@PathVariable(value="id")Long order_id) {
+    	orepository.deleteById(order_id);
+    	return ResponseEntity.noContent().build();
+    }
+	
+}

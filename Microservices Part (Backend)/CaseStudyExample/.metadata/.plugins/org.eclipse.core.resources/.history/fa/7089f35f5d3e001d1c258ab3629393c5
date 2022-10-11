@@ -1,0 +1,56 @@
+package com.order.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Order {
+	
+	@Id
+	private long order_id;
+	private long prod_id;
+	private double payment;
+	private String order_status;
+	
+	public Order(){}
+
+	public Order(long order_id, long prod_id, double payment, String order_status) {
+		super();
+		this.order_id = order_id;
+		this.prod_id = prod_id;
+		this.payment = payment;
+		this.order_status = order_status;
+	}
+
+	public long getOrder_id() {
+		return order_id;
+	}
+
+	public void setOrder_id(long order_id) {
+		this.order_id = order_id;
+	}
+
+	public long getProd_id() {
+		return prod_id;
+	}
+
+	public void setProd_id(long prod_id) {
+		this.prod_id = prod_id;
+	}
+
+	public double getPayment() {
+		return payment;
+	}
+
+	public void setPayment(double payment) {
+		this.payment = payment;
+	}
+
+	public String getOrder_status() {
+		return order_status;
+	}
+
+	public void setOrder_status(String order_status) {
+		this.order_status = order_status;
+	}
+}

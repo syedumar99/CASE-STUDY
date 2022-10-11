@@ -1,0 +1,13 @@
+package com.products.repository;
+import java.util.function.IntPredicate;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.products.model.product;
+
+public interface ProductsRepository extends JpaRepository<product, Long>{
+
+	IntPredicate existsByPrice(double d);
+
+}
