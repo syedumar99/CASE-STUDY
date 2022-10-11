@@ -1,0 +1,45 @@
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 50vh;
+}
+.screen {		
+    top: 20px;
+	position: relative;	
+	height: 450px;
+	width: 560px;	
+	
+}
+
+.screen__content {
+
+	height: 100%;
+    text-align:left;
+}
+.head{
+    text-align: center;
+}
+
+.order {
+    border: none;
+    display: block;
+    background-color: #3ff51a;
+    color: #fff;
+   
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    padding: 12px;
+  }
+
+.form-group{
+    border-radius: 30px;
+  }

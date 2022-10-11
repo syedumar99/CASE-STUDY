@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="container" style = "background: rgb(228, 232, 174);">
+  <div class="screen">
+    <div class="screen__content">
+      <h2>Order Details</h2>
+      <form #userPost="ngForm" (ngSubmit)="placeOrder()">
+<small class = "text-danger">{{msg}}</small>
+        <div class="form-group">
+
+          <label for="user_phone"> Enter Contact Number</label><br>
+          <input type="user_phone" class="form-control" [(ngModel)]="order.order_id" name="order.order_id"
+            placeholder="Phone">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Enter Your Shipping Address</label>
+          <textarea class="form-control" [(ngModel)]="order.user_address" name="order.user_address" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Select the Mode of payment</label>
+          <select class="form-control" [(ngModel)]="order.payment" name="order.payment">
+
+            <option>Cash on delivery</option>
+            <option>Debit or Credit card</option>
+            <option>Net Banking</option>
+            <option>UPI</option>
+
+          </select>
+        </div>
+        <br>
+        <div>
+          <div>
+          <a routerLink="/ordersuccessful" class="btn btn-lg btn-dark mb-3 ">Place Order</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

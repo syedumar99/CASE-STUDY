@@ -1,0 +1,20 @@
+.order {
+    border: none;
+    display: block;
+    background-color: #050514;
+    color: #fff;
+    border-style: unset;
+    border-radius: 15px;
+    top: 30px;
+   
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    padding: 12px;
+  }
